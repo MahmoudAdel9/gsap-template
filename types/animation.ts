@@ -1,10 +1,10 @@
-import type { EasingFunction, TweenVars } from "gsap";
+import type { gsap } from "gsap";
 
 export type MaybeHTMLElement = HTMLElement | null;
 
 export interface BaseAnimationOptions {
   duration?: number;
-  ease?: string | EasingFunction;
+  ease?: string | gsap.EaseFunction;
   delay?: number;
 }
 
@@ -16,5 +16,5 @@ export interface FadeInOptions extends BaseAnimationOptions {
 export interface StaggerTextOptions extends BaseAnimationOptions {
   stagger?: number;
   y?: number;
-  from?: TweenVars["stagger"];
+  from?: gsap.TweenVars["stagger"];
 }

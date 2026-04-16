@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 
 import { initGsap } from "@/lib/gsap";
-import type { MaybeHTMLElement, StaggerTextOptions } from "@/types/animation";
+import type { StaggerTextOptions } from "@/types/animation";
 
 const DEFAULTS: Required<Omit<StaggerTextOptions, "from">> = {
   duration: 0.7,
@@ -14,8 +14,8 @@ const DEFAULTS: Required<Omit<StaggerTextOptions, "from">> = {
   y: 18,
 };
 
-export function useStaggerText(options: StaggerTextOptions = {}) {
-  const containerRef = useRef<MaybeHTMLElement>(null);
+export function useStaggerText<T extends HTMLElement = HTMLElement>(options: StaggerTextOptions = {}) {
+  const containerRef = useRef<T | null>(null);
   const gsap = initGsap();
   const config = { ...DEFAULTS, ...options };
 

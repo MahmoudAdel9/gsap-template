@@ -29,7 +29,7 @@ export function StaggerText({
   options,
   ...rest
 }: StaggerTextProps) {
-  const ref = useStaggerText(options);
+  const ref = useStaggerText<HTMLParagraphElement>(options);
   const parts = splitText(text, splitBy);
 
   return (
